@@ -24,7 +24,7 @@ real-world imbalanced datasets.
 
 A quick overview of active learning can be found in [this blog](https://dsgissin.github.io/DiscriminativeActiveLearning/). For a more extensive
 overview, see [this survey paper](https://burrsettles.com/pub/settles.activelearning.pdf). A very useful software library containing
-implementations of active learning strategies is [scikit-activeml]x(https://github.com/scikit-activeml/scikit-activeml).
+implementations of active learning strategies is [scikit-activeml](https://github.com/scikit-activeml/scikit-activeml).
 
 ## Datasets
 You will see that many experiments in active learning are done on simple, synthetic
