@@ -1,12 +1,13 @@
 '''
 Module containing a trainig function for any given classifier and query strategy.
 '''
+import copy
 
 
 '''
 Use a model and a query strategy to perform active learning for a number of cycles.
 The model will be fitted during this function.
-@param clf -- The model to fit with. This classifier will be altered.
+@param clf -- The model to fit with. This classifier will not be altered.
 @param qs -- The query strategy to pick the samples.
 @param X -- The unlabled data. This list will not be altered.
 @param y -- Lables already known to the learner. This list will not be altered.
@@ -22,10 +23,12 @@ Returns a dict of label lists. Any iteration contained in the output_cycle will 
 it's lable list (y) to this dict.
 '''
 def al_single(clf, qs, X, y, y_true, cycles=10, output_cycles=None):
-    # copy y
-    lables = y[:]
+
+    clf = copy.deepcopy(clf)
+    y = copy.deepcopy(y)
+
     # fit the model
-    clf.fit(X, lables)
+    clf.fit(X, y)
 
     # update cycles to output
     if output_cycles == None:
@@ -34,15 +37,15 @@ def al_single(clf, qs, X, y, y_true, cycles=10, output_cycles=None):
     output = {}
     for i in range(cycles):
         # get the indices of the selected samples
-        q_idx = qs.query(X=X, y=lables, clf=clf)
+        q_idx = qs.query(X=X, y=y, clf=clf)
         # ask oracle to lable the samples
-        lables[q_idx] = y_true[q_idx]
+        y[q_idx] = y_true[q_idx]
         # refit the model
-        clf.fit(X,lables)
+        clf.fit(X,y)
 
         # add to output
         if i in output_cycles:
-            output[i] = lables
+            output[i] = {"clf": copy.deepcopy(clf), "lables": copy.deepcopy(y)}
 
     return output
 
