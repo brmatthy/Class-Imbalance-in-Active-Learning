@@ -8,10 +8,14 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import make_classification
 
 def accuracy():
-    X, y_true = make_classification(n_features=2, n_redundant=0, random_state=0)
-    clf = SklearnClassifier(LogisticRegression(), classes=np.unique(y_true))
-    us = UncertaintySampling(clf, X, y_true)
-    us.entropy())
+   X, y_true = make_classification(n_samples=1000)
+   clf = SklearnClassifier(LogisticRegression(), classes=np.unique(y_true))
+   us = UncertaintySampling(clf, X, y_true)
+   data = us.entropy(cycles=50)
+   for i in range(50):
+      print(data[i]["clf"].score(X, y_true))
+
+
 
 if __name__ == '__main__':
-   accuracy() 
+   accuracy()
