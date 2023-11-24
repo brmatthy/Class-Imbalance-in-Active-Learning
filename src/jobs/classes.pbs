@@ -3,15 +3,19 @@
 ## Modules ##
 # Please load all your modules here
 
-module load JupyterNotebook/7.0.3-GCCcore-12.2.0
-module load Boost.Python-NumPy/1.79.0-foss-2022a
-module load matplotlib/3.7.2-gfbf-2023a
-module load scikit-learn/1.2.1-gfbf-2022
+module load JupyterNotebook/7.0.3-GCCcore-12.2.0 Boost.Python-NumPy/1.79.0-foss-2022a scikit-learn/1.2.1-gfbf-2022
 
 pip install scikit-activeml
 
 ##
 PROJECT_PATH="$HOME/ml/project"
-SCRIPT_PATH="src/classes.ipynb"
 
-jupyter nbconvert --to notebook --execute "$PROJECT_PATH/$SCRIPT_PATH"
+echo "Moving to project src dir ..."
+cd "$PROJECT_PATH/src"
+pwd
+
+echo "Executing python program..."
+
+python ./classes.py
+
+echo "Done executing"
