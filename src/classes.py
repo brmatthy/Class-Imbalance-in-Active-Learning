@@ -13,6 +13,7 @@ from skactiveml.classifier import SklearnClassifier
 from skactiveml.pool import UncertaintySampling
 from skactiveml.pool import RandomSampling
 from skactiveml.utils import MISSING_LABEL
+import json
 
 # accuracy
 from balanced_accuracy import balanced_accuracy
@@ -69,7 +70,7 @@ def get_accuracy(n_samples=100, n_classes=2, weights=None, cycles=5, al=True, nn
 
 def class_weights(n_classes):
     # Generate the first element in the list
-    first_element = 1
+    first_element = 1.0
     
     # Initialize the list with the first element
     percentages = [first_element]
@@ -84,37 +85,35 @@ def class_weights(n_classes):
     percentages = [element / total_sum for element in percentages]
     return percentages
 
-dict = {}
 
-dataR = []
+data = []
 for n_classes in range(2,4):
-    dataR.append({
+    data.append({
         "name": f'{n_classes} classes',
         "acc" : get_accuracy(n_classes=n_classes, weights=class_weights(n_classes=n_classes), al=False),
         })
 
-dict["dataR"] = dataR
 
-dataU = []
+with open('dataR.json', 'w') as fp:
+    json.dump(data, fp)
+
+data.clear()
 for n_classes in range(2,4):
-    dataU.append({
+    data.append({
         "name": f'{n_classes} classes',
         "acc" : get_accuracy(n_classes=n_classes, weights=class_weights(n_classes=n_classes), al=True),
         })
 
-dict["dataU"] = dataU
 
-dataN = []
+with open('dataU.json', 'w') as fp:
+    json.dump(data, fp)
+
+data.clear()
 for n_classes in range(2,4):
-    dataN.append({
+    data.append({
         "name": f'{n_classes} classes',
         "acc" : get_accuracy(n_classes=n_classes, weights=class_weights(n_classes=n_classes), al=True, nn=True),
         })
 
-dict["dataN"] = dataN
-
-print(dict)
-
-import json
-with open('result.json', 'w') as fp:
-    json.dump(dict, fp)
+with open('dataN.json', 'w') as fp:
+    json.dump(data, fp)
