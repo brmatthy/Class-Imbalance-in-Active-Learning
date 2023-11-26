@@ -6,3 +6,4 @@ scikit-activeml==0.4.1
 matplotlib>=3.5, <=3.7.2
 iteration-utilities>=0.11, <=0.11.0
 notebook ~= 6.5.4
+tensorflow
