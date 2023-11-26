@@ -37,6 +37,7 @@ def balanced_accuracy(y_true, y):
     accuracy /= len(dict(count))
     return accuracy
 
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
