@@ -60,7 +60,7 @@ def gmean(y_true, y):
             correct_count[true_label] += 1
 
 
-    accuracy = 0
+    accuracy = 1
     # Predict the accuracy
     for key in dict(count):
         accuracy *= correct_count[key]/count[key]
