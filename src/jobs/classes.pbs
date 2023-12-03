@@ -1,0 +1,23 @@
+#!/bin/bash -l
+#PBS -l nodes=1:ppn=16
+#PBS -l mem=4gb
+
+# Modules ##
+# Please load all your modules here
+
+module load Boost.Python-NumPy/1.79.0-foss-2022a scikit-learn/1.1.2-foss-2022a
+
+pip install scikit-activeml
+
+##
+PROJECT_PATH="$HOME/ml/project"
+
+echo "Moving to project src dir ..."
+cd "$PROJECT_PATH/src"
+pwd
+
+echo "Executing python program..."
+
+python ./classes.py
+
+echo "Done executing"

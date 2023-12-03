@@ -1,0 +1,9 @@
+#!/bin/bash -l
+
+## Modules ##
+# Please load all your modules here
+# module load example/1.2.3
+
+##
+PROJECT_PATH="absolute/path/on/hpc/to/the/project/dir"
+SCRIPT_PATH="relative/path/from/project/dir/to/script.ipynb"
