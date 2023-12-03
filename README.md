@@ -25,4 +25,10 @@ Next we took a look at batches to discover more realistic situations.
 ### Classes
 We also experimented with the amount of classes to discover their impact.
 
+- [Classes](src/classes.ipynb): Compares the balanced accuracy for different query strategies when using more or less classes.
+
+### Real Data
+We also tested our findings on real datasets.
+
+- []
 - []
