@@ -2,6 +2,7 @@ from collections import Counter
 
 import numpy as np
 
+
 def balanced_accuracy(y_true, y, as_counters=False):
     """ Computes the balanced accuracy for a given prediction
     y_true and y must have the same dimensions.
@@ -40,7 +41,6 @@ def balanced_accuracy(y_true, y, as_counters=False):
     if as_counters:
         return (count, correct_count)
 
-    print(count, correct_count)
     accuracy = 0
     # Predict the accuracy
     for key in dict(count):
@@ -48,6 +48,7 @@ def balanced_accuracy(y_true, y, as_counters=False):
 
     accuracy /= len(dict(count))
     return accuracy
+
 
 def gmean(y_true, y):
     """ Computes the gmean for a given prediction
@@ -67,7 +68,6 @@ def gmean(y_true, y):
         count[true_label] += 1
         if true_label == y[i]:
             correct_count[true_label] += 1
-
 
     accuracy = 1
     # Predict the accuracy
