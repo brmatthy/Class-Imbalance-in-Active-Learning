@@ -13,6 +13,8 @@ Firstly we got to know the sklearn Active Learning library and experimented with
 - [Accuracy](src/accuracy.ipynb): Compares the difference between accuracy on balanced and imbalanced datasets for active and not-active learning. 
 - [Classifiers](src/classifiers.ipynb): Compares different classifiers to determine which ones are better suited for our purposes.
 - [Query by committee](src/query_by_committee.ipynb): Implements the Query by Committee query strategy using the discovered classifiers.
+- [FourD's](src/fourDs.ipynb): Implements the FourDs query strategy to try and improve the MixtureModelClassifier.
+- [Skew](src/skew.ipynb): Compares the effect of different skews in the imbalance.
 
 ### Batches
 Next we took a look at batches to discover more realistic situations.
@@ -24,3 +26,9 @@ Next we took a look at batches to discover more realistic situations.
 We also experimented with the amount of classes to discover their impact.
 
 - [Classes](src/classes.ipynb): Compares the balanced accuracy for different query strategies when using more or less classes.
+
+### Real Data
+We also tested our findings on real datasets.
+
+- []
+- []

@@ -1,5 +1,7 @@
 from collections import Counter
 
+import numpy as np
+
 
 def balanced_accuracy(y_true, y, as_counters=False):
     """ Computes the balanced accuracy for a given prediction
@@ -18,15 +20,22 @@ def balanced_accuracy(y_true, y, as_counters=False):
 
     >>> balanced_accuracy([0, 0, 0, 0, 0, 0, 1, 1, 1, 1],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     0.5
+
+    >>> balanced_accuracy(["a", "a", "a", "a", "a", "a", "b", "b", "b", "b"],["a", "a", "a", "a", "a", "a", "a", "a", "a", "a"])
+    0.5
     """
+
+    # label list
+    unique_labels = np.unique(np.concatenate([y_true, y]))
     # The amount of samples from each class
     count = Counter()
     # The amount of correctly predicted samples from each class
     correct_count = Counter()
     for i in range(len(y_true)):
         true_label = y_true[i]
+        true_label = np.where(unique_labels==true_label)[0][0]
         count[true_label] += 1
-        if true_label == y[i]:
+        if y_true[i] == y[i]:
             correct_count[true_label] += 1
 
     if as_counters:
@@ -39,6 +48,7 @@ def balanced_accuracy(y_true, y, as_counters=False):
 
     accuracy /= len(dict(count))
     return accuracy
+
 
 def gmean(y_true, y):
     """ Computes the gmean for a given prediction
@@ -58,7 +68,6 @@ def gmean(y_true, y):
         count[true_label] += 1
         if true_label == y[i]:
             correct_count[true_label] += 1
-
 
     accuracy = 1
     # Predict the accuracy
