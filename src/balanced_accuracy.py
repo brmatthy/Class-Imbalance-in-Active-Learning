@@ -40,6 +40,7 @@ def balanced_accuracy(y_true, y, as_counters=False):
     if as_counters:
         return (count, correct_count)
 
+    print(count, correct_count)
     accuracy = 0
     # Predict the accuracy
     for key in dict(count):
