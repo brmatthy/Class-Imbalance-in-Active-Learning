@@ -9,3 +9,4 @@ notebook ~= 6.5.4
 tensorflow
 ucimlrepo ~= 0.0.3
 pandas ~= 2.1.1
+imbalanced-learn ~=0.11.0
