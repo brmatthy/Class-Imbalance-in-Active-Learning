@@ -31,4 +31,4 @@ We also experimented with the amount of classes to discover their impact.
 We also tested our findings on real datasets.
 
 - [Breast cancer](src/breast_cancer.ipynb): Looks at the false positive and false negative cases when using class imbalance.
-- [Car evaluation](src/car_evaluation.ipynb)
+- [Car evaluation](src/car_evaluation.ipynb): Tries to evaluate the condition of cars.
