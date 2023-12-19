@@ -14,7 +14,6 @@ Firstly we got to know the sklearn Active Learning library and experimented with
 - [Classifiers](src/classifiers.ipynb): Compares different classifiers to determine which ones are better suited for our purposes.
 - [Query by committee](src/query_by_committee.ipynb): Implements the Query by Committee query strategy using the discovered classifiers.
 - [FourD's](src/fourDs.ipynb): Implements the FourDs query strategy to try and improve the MixtureModelClassifier.
-- [Skew](src/skew.ipynb): Compares the effect of different skews in the imbalance.
 
 ### Batches
 Next we took a look at batches to discover more realistic situations.
@@ -22,9 +21,10 @@ Next we took a look at batches to discover more realistic situations.
 - [Greedy](src/greedy.ipynb): Implements the basic greedy batch policies and experiments with it.
 - [Batch fairness](src/batch_fairness.ipynb): Compares the fairness of the different batch algorithms.
 
-### Classes
-We also experimented with the amount of classes to discover their impact.
+### Classification problem
+We also experimented with the classification problem to determine the impact of the imbalanced data set itself.
 
+- [Skew](src/skew.ipynb): Compares the effect of different skews in the imbalance.
 - [Classes](src/classes.ipynb): Compares the balanced accuracy for different query strategies when using more or less classes.
 
 ### Real Data
